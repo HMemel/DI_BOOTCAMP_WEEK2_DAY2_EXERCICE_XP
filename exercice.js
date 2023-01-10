@@ -55,22 +55,30 @@ if (number % 2 === 0) {
 
 // Exercise 4: Group Chat
 
-const users = ["Lea123", "Princess45", "cat&doglovers", "helooo@000"];
+let users = ["Lea123", "Princess45", "cat&doglovers", "helooo@000"];
 // Using the array above, console.log the number of users that are connected to the group chat based on the following rules:
 
+let userCount = users.length;
+
 // If there is no users (the users array is empty), console.log “no one is online”.
-if (users.length === 0) {
-  console.log("no one is online");
+switch(userCount) {
+  case 0:
+    console.log('no one online');
+  break;
 
 // If there is 1 user, console.log “ is online”.
-} else if (users.length === 1) {
-  console.log(`${users[0]} is online`);
+  case 1:
+    console.log(`${users[0]} online`);
+  break;
 
 // If there are 2 users, console.log “ and are online”
-} else if (users.length === 2) {
-  console.log(`${users[0]} and ${users[1]} are online`);
+  case 2:
+    console.log(`${users[0]} and ${users[1]} online`);
+  break;
 
 // If there are more than 2 users, console.log the first two names in the users array and the number of additional users online.
-} else {
-  console.log(`${users[0]}, ${users[1]} and ${users.length - 2} more are online`);
+  default:
+    let remaining = userCount - 2;
+    console.log(`${users[0]} and ${users[1]} and ${remaining} more online`);
+  break;
 }
